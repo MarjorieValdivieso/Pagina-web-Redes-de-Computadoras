@@ -1,0 +1,258 @@
+export default function ModeloOSI() {
+  return (
+    <>
+      <p>
+        Bienvenido al módulo de <strong>Modelo OSI</strong>. Aquí podrás profundizar en todos los conceptos técnicos.
+      </p>
+
+      <div className="tema-secciones">
+
+        {/* AQUÍ PEGAS TODO EL CONTENIDO */}
+
+        <div className="content-section">
+          <div className="section-header">
+            <span className="section-number">01</span>
+            <h2>Estructuración del Software de Red</h2>
+          </div>
+
+          <p>
+            En una red de computadores el software es altamente estructurado...
+          </p>
+
+          ...
+        </div>
+
+        {/* TODO EL RESTO */}
+
+      </div>
+    </>
+  );
+}
+
+
+
+]export default function ModeloOSI() {
+  return (
+    <>
+      <p>
+        Bienvenido al módulo de <strong>Modelo OSI</strong>. Aquí podrás profundizar en todos los conceptos técnicos.
+      </p>
+
+      <div className="tema-secciones">
+
+        <div className="content-section">
+          <div className="section-header">
+            <span className="section-number">01</span>
+            <h2>Estructuración del Software de Red</h2>
+          </div>
+          <p>
+            En una red de computadores el software es altamente estructurado. La mayoría de redes se organizan en <strong>capas o niveles</strong>: el número de capas, nombre, contenido y función varía de una red a otra, pero el propósito de cada capa es ofrecer ciertos servicios a las capas superiores.
+          </p>
+          <p>
+            <strong>Protocolo:</strong> reglas y convenciones utilizadas en la comunicación de la capa de una máquina con la correspondiente de otra.
+          </p>
+
+          <div className="tarjetas-duales">
+            <div className="mini-card">
+              <h3>Procesos Pares (peers)</h3>
+              <p>
+                Entidades que forman las capas correspondientes en máquinas diferentes. La comunicación entre capas correspondientes es virtual: cada capa transfiere los datos a su capa inferior hasta alcanzar el medio físico.
+              </p>
+            </div>
+
+            <div className="mini-card">
+              <h3>Interfaz</h3>
+              <p>
+                Define los servicios y operaciones primitivas que la capa inferior ofrece a la superior. Se encuentra entre cada par de capas adyacentes.
+              </p>
+            </div>
+          </div>
+
+          <p className="nota-pie">
+            <strong>Arquitectura de red:</strong> conjunto de capas y protocolos, con la información suficiente para escribir un programa o construir el hardware de cada capa. Los interfaces no forman parte de la arquitectura.
+          </p>
+        </div>
+
+        <div className="content-section">
+          <div className="section-header">
+            <span className="section-number">02</span>
+            <h2>Características de Diseño de las Capas</h2>
+          </div>
+
+          <p>
+            Cada capa añade información de control al mensaje que recibe de la capa superior y lo pasa a la inferior, hasta alcanzar la capa más baja (en contacto con el medio físico). En la máquina de destino, cada capa realiza el proceso inverso.
+          </p>
+
+          <ul className="lista-check">
+            <li><strong>Direccionamiento:</strong> mecanismo de identificación de emisores y receptores.</li>
+            <li><strong>Reglas de transferencia:</strong> Simplex, Half Duplex, Full Duplex.</li>
+            <li><strong>Control de errores:</strong> compatibilidad entre códigos de emisor y receptor.</li>
+            <li><strong>Secuenciamiento de mensajes</strong> y <strong>control de flujo</strong>.</li>
+            <li><strong>Manejo de mensajes de distinto tamaño:</strong> mecanismos para desensamblar, transmitir y ensamblar.</li>
+            <li><strong>Multiplexación:</strong> usar la misma conexión para múltiples comunicaciones no relacionadas.</li>
+          </ul>
+        </div>
+
+        <div className="content-section">
+          <div className="section-header">
+            <span className="section-number">03</span>
+            <h2>Servicios de las Capas</h2>
+          </div>
+
+          <p>
+            <strong>Entidades:</strong> elementos activos de cada capa (software o hardware); las entidades de capas correspondientes se llaman <strong>entidades pares</strong>. Las entidades de la capa N implementan un servicio para la capa N+1, distinguiéndose la capa proveedora (N) y la usuaria (N+1).
+          </p>
+
+          <p>
+            <strong>SAPs (Puntos de Acceso al Servicio):</strong> lugares donde la capa N+1 puede acceder a los servicios de la capa N. Cada SAP está asociado a una dirección.
+          </p>
+
+          <div className="tarjetas-duales">
+            <div className="mini-card">
+              <h3>Servicio Orientado a Conexión</h3>
+              <p>
+                Existe un proceso de establecimiento de la conexión, transferencia de información y liberación de la conexión. El direccionamiento solo existe al establecer la conexión.
+              </p>
+            </div>
+
+            <div className="mini-card">
+              <h3>Servicio No Orientado a Conexión</h3>
+              <p>
+                Cada mensaje se enruta de forma independiente, con direccionamiento en cada uno. No hay establecimiento ni liberación de conexión, y los mensajes pueden llegar desordenados.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="content-section">
+          <div className="section-header">
+            <span className="section-number">04</span>
+            <h2>Modelo de Referencia OSI</h2>
+          </div>
+
+          <ul className="lista-check">
+            <li>Creado por la <strong>Organización Internacional de Estandarización (ISO)</strong>, para la Interconexión de Sistemas Abiertos (OSI) entre sistemas heterogéneos.</li>
+            <li>Estructurado en <strong>7 niveles o capas</strong>, cuya función tiende a definir protocolos normalizados internacionalmente.</li>
+            <li>No es una arquitectura de red: no especifica servicios ni protocolos, solo indica lo que cada capa debe hacer.</li>
+            <li>Son pocas las arquitecturas que implementan el modelo OSI en su totalidad.</li>
+          </ul>
+        </div>
+
+        <div className="content-section">
+          <div className="section-header">
+            <span className="section-number">05</span>
+            <h2>Las 7 Capas del Modelo OSI</h2>
+          </div>
+
+          <div className="tabla-wrapper">
+            <table className="tabla-redes">
+              <thead>
+                <tr>
+                  <th>Capa</th>
+                  <th>Función principal</th>
+                  <th>Unidad</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><span className="tag">7. Aplicación</span></td>
+                  <td>Interfaz final usuario-red: correo, FTP, hojas de cálculo, etc.</td>
+                  <td>Datos</td>
+                </tr>
+
+                <tr>
+                  <td><span className="tag">6. Presentación</span></td>
+                  <td>Formato, sintaxis y cifrado de los datos (no su significado).</td>
+                  <td>Datos</td>
+                </tr>
+
+                <tr>
+                  <td><span className="tag">5. Sesión</span></td>
+                  <td>Establece y controla el diálogo entre procesos de usuarios distantes.</td>
+                  <td>Datos</td>
+                </tr>
+
+                <tr>
+                  <td><span className="tag">4. Transporte</span></td>
+                  <td>Capa Host-Host: asegura entrega correcta y control de flujo entre hosts.</td>
+                  <td>Segmentos</td>
+                </tr>
+
+                <tr>
+                  <td><span className="tag">3. Red</span></td>
+                  <td>Enrutamiento, conmutación e interconexión de redes heterogéneas.</td>
+                  <td>Paquetes</td>
+                </tr>
+
+                <tr>
+                  <td><span className="tag">2. Enlace</span></td>
+                  <td>Control de flujo y transmisión libre de errores entre nodos adyacentes.</td>
+                  <td>Tramas</td>
+                </tr>
+
+                <tr>
+                  <td><span className="tag">1. Física</span></td>
+                  <td>Transmisión de bits mediante señales (características mecánicas y eléctricas).</td>
+                  <td>Bits</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="nota-pie">
+            Las redes de difusión resuelven el control de acceso al canal compartido mediante la subcapa <strong>MAC (Media Access Control)</strong>, dentro de la capa Enlace.
+          </p>
+        </div>
+
+        <div className="content-section">
+          <div className="section-header">
+            <span className="section-number">06</span>
+            <h2>Arquitectura TCP/IP</h2>
+          </div>
+
+          <p>
+            <strong>TCP/IP</strong> (Protocolo de Control de Transmisión/Protocolo Internet) fue creado por ARPA, asociada al Departamento de Defensa de EE.UU., en la red ARPANET. La red Internet utiliza TCP/IP, cuyo modelo define <strong>4 capas</strong>.
+          </p>
+
+          <div className="tarjetas-grid">
+            <div className="mini-card">
+              <h3>Host-Red</h3>
+              <p>No define exactamente sus funciones; permite a un host conectarse a la red enviando paquetes IP.</p>
+            </div>
+
+            <div className="mini-card">
+              <h3>Internet</h3>
+              <p>Entrega paquetes a la red (servicio no orientado a conexión). Define el protocolo <strong>IP</strong>.</p>
+            </div>
+
+            <div className="mini-card">
+              <h3>Transporte</h3>
+              <p>Define <strong>TCP</strong> y <strong>UDP</strong>.</p>
+            </div>
+
+            <div className="mini-card">
+              <h3>Aplicación</h3>
+              <p>Programas que usan la red: Telnet, FTP, SMTP, DNS, HTTP, entre otros.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="content-section">
+          <div className="section-header">
+            <span className="section-number">07</span>
+            <h2>Comparación: Modelo OSI vs. TCP/IP</h2>
+          </div>
+
+          <ul className="lista-check">
+            <li>Ambos se basan en una pila de protocolos independientes.</li>
+            <li>OSI distingue claramente entre servicios, interfaz y protocolos; TCP/IP no lo hace.</li>
+            <li>OSI fue concebido antes de existir los protocolos; TCP/IP surgió a partir de protocolos ya existentes.</li>
+            <li>OSI y TCP/IP difieren en la forma en que manejan las conexiones en las capas de Red y Transporte.</li>
+          </ul>
+        </div>
+
+      </div>
+    </>
+  );
+}

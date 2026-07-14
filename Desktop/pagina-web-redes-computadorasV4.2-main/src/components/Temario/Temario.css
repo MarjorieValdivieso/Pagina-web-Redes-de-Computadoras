@@ -1,0 +1,301 @@
+/* ==========================================================================
+   ESTILOS GENERALES DE LA SECCIÓN TEMARIO
+   ========================================================================== */
+.temario {
+  background: linear-gradient(180deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+  padding: var(--spacing-2xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Elementos Ambientales de Fondo */
+.temario::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 149, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.temario::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45, 53, 97, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* Encabezado del Temario */
+.temario-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.temario-header h2 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.temario-header p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   REJILLA DE TARJETAS (GRID DE TEMAS)
+   ========================================================================== */
+.temas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  position: relative;
+  z-index: 1;
+}
+
+/* Tarjeta Base */
+.tema-card {
+  background: linear-gradient(135deg, var(--secondary-dark), var(--tertiary-dark));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.tema-card:hover {
+  border-color: var(--accent-orange);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 149, 0, 0.08);
+}
+
+/* Tarjeta Expandida full-width */
+.tema-card.expanded {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--secondary-dark), var(--tertiary-dark));
+  border-color: var(--accent-orange);
+  box-shadow: 0 15px 45px rgba(255, 149, 0, 0.12);
+}
+
+/* Contenido Interno del Header de la Tarjeta */
+.tema-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  cursor: pointer;
+}
+
+.tema-icon {
+  font-size: 2.3rem;
+  flex-shrink: 0;
+  min-width: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tema-title-wrapper {
+  flex: 1;
+}
+
+.tema-title-wrapper h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.tema-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Botón/Icono de Expansión */
+.expand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  color: var(--accent-orange);
+  background: rgba(255, 149, 0, 0.06);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.expand-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.tema-card:hover .expand-icon {
+  background: rgba(255, 149, 0, 0.15);
+  transform: scale(1.05);
+}
+
+.tema-card.expanded .expand-icon svg {
+  transform: rotate(180deg);
+}
+
+/* Despliegue de Detalles Expandidos */
+.tema-content {
+  padding: 0 var(--spacing-lg) var(--spacing-lg) 85px;
+  animation: slideInLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-top: 1px solid var(--border-color);
+  margin-top: 0.5rem;
+  padding-top: var(--spacing-lg);
+}
+
+.tema-content p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.tema-content .btn-secondary {
+  width: auto;
+  background: rgba(255, 149, 0, 0.08);
+  border: 1px solid var(--accent-orange);
+  color: var(--accent-orange);
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tema-content .btn-secondary:hover {
+  background: var(--accent-orange);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   BLOQUE DE ESTADÍSTICAS (CON SEPARACIÓN PREMIUM PARA PC)
+   ========================================================================== */
+.temario-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas en PC */
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background: rgba(255, 149, 0, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  position: relative;
+  z-index: 1;
+  margin-top: 4rem; /* SOLUCIÓN: Separa drásticamente el cuadro del grid de arriba en PCs */
+}
+
+.stat {
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.stat-number {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-sm);
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO EN CASCADA
+   ========================================================================== */
+@media (max-width: 992px) {
+  .temas-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .temario-stats {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .temas-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .tema-card.expanded {
+    grid-column: auto;
+  }
+
+  .tema-header {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+
+  .tema-icon {
+    font-size: 2rem;
+    min-width: 45px;
+  }
+
+  .tema-title-wrapper h3 {
+    font-size: 1.05rem;
+  }
+
+  .tema-desc {
+    display: none;
+  }
+
+  .tema-content {
+    padding: var(--spacing-md);
+  }
+}
+
+/* PROTECCIÓN RESPONSIVA PARA CELULARES */
+@media (max-width: 600px) {
+  .temario-stats {
+    grid-template-columns: 1fr; /* Cambia a una sola columna vertical */
+    padding: var(--spacing-lg);
+    gap: 0;
+    margin-top: 2.5rem;         /* Margen equilibrado para pantallas pequeñas */
+  }
+
+  .stat {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  /* Línea divisoria interna y elegante en celulares */
+  .stat:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 149, 0, 0.1);
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tema-header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .expand-icon {
+    width: 34px;
+    height: 34px;
+  }
+}
