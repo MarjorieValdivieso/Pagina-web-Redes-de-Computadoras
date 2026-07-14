@@ -1,0 +1,280 @@
+/* ==========================================================================
+   ESTILOS GENERALES DE LA SECCIÓN ABOUT
+   ========================================================================== */
+.about {
+  background: linear-gradient(180deg, var(--primary-dark) 0%, rgba(45, 53, 97, 0.1) 100%);
+  padding: var(--spacing-2xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bloques decorativos de fondo de fondo */
+.about::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 149, 0, 0.03), transparent);
+  pointer-events: none;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: -15%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45, 53, 97, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* Encabezado Principal */
+.about-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.about-header h2 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+/* ==========================================================================
+   BLOQUE SUPERIOR: TEXTO Y VIDEO
+   ========================================================================== */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.about-text p.lead {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.about-image {
+  animation: slideInRight 0.8s ease-out;
+  perspective: 1000px;
+}
+
+/* Contenedor estilizado del video */
+.video-wrapper {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(255, 107, 53, 0.25);
+  border: 2px solid rgba(255, 107, 53, 0.15);
+  transform: translateY(-5px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.video-wrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 50px rgba(255, 107, 53, 0.4);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1.05) brightness(1.05);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.08), transparent);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   REJILLA DE TARJETAS (COMPACTA, HORIZONTAL Y CON AIRE VISUAL)
+   ========================================================================== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Fila perfecta de 4 columnas */
+  gap: var(--spacing-lg);                /* Espacio milimetrado entre tarjetas */
+  margin-top: 5.5rem;                    /* SEPARACIÓN EXCLUSIVA: Evita el choque con el video/texto */
+  margin-bottom: 5.5rem;                 /* SEPARACIÓN INFERIOR: Respira antes del CTA de abajo */
+  position: relative;
+  z-index: 1;
+}
+
+/* Cuadros optimizados (sin desperdicio de espacio vertical) */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1.2rem;                /* Relleno ajustado para que se vean compactos */
+  background: linear-gradient(135deg, var(--secondary-dark), var(--tertiary-dark));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.feature-item:hover {
+  border-color: var(--accent-orange);
+  transform: translateY(-6px);          /* Movimiento fino y sutil */
+  box-shadow: 0 12px 25px rgba(255, 107, 53, 0.1);
+}
+
+/* Burbujas de iconos compactas */
+.feature-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 107, 53, 0.04);
+  border: 1px solid rgba(255, 107, 53, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+  transition: all 0.4s ease;
+}
+
+.feature-icon-large {
+  font-size: 1.6rem;                     /* Tamaño de emoji prudente y elegante */
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.feature-item:hover .feature-icon-wrapper {
+  background: rgba(255, 107, 53, 0.1);
+  border-color: var(--accent-orange);
+}
+
+.feature-item:hover .feature-icon-large {
+  transform: scale(1.12) rotate(6deg);
+}
+
+/* Textos internos de las tarjetas */
+.feature-item h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.feature-item p {
+  color: var(--text-secondary);
+  line-height: 1.45;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   SECCIÓN DE LLAMADO A LA ACCIÓN (CTA)
+   ========================================================================== */
+.about-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: center;
+  padding: var(--spacing-2xl);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 80, 0.05));
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  animation: fadeInUp 0.8s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.about-cta:hover {
+  border-color: var(--accent-orange);
+  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.15);
+}
+
+.about-cta h3 {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+}
+
+.about-cta p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO INTELIGENTE
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr); /* Rejilla 2x2 simétrica perfecta en tablets */
+    gap: var(--spacing-2xl);
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;            /* Apila el texto arriba y video abajo */
+    gap: var(--spacing-2xl);
+  }
+  .about-image { order: 2; }
+  .about-text { order: 1; }
+}
+
+@media (max-width: 768px) {
+  .about { padding: var(--spacing-xl) 0; }
+  .about-header { margin-bottom: var(--spacing-xl); }
+  .about-header h2 { font-size: 2rem; }
+  .about-text { gap: var(--spacing-md); }
+  .about-text p { font-size: 0.95rem; }
+  .feature-item { padding: var(--spacing-xl) var(--spacing-lg); }
+  .about-cta { padding: var(--spacing-xl); gap: var(--spacing-md); }
+  .about-cta h3 { font-size: 1.5rem; }
+  .about-cta p { font-size: 0.9rem; }
+}
+
+@media (max-width: 640px) {
+  .features-grid {
+    grid-template-columns: 1fr;            /* Una sola columna limpia en celulares */
+    gap: var(--spacing-lg);
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about { padding: var(--spacing-lg) 0; }
+  .about-header h2 { font-size: 1.5rem; }
+  .feature-item { padding: var(--spacing-lg) var(--spacing-md); }
+  .feature-icon-wrapper { width: 60px; height: 60px; }
+  .feature-icon-large { font-size: 1.8rem; }
+  .feature-item h3 { font-size: 1.05rem; }
+  .feature-item p { font-size: 0.85rem; }
+  .about-cta h3 { font-size: 1.2rem; }
+}

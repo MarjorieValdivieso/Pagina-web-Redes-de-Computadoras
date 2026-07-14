@@ -1,0 +1,19 @@
+/* Mantenemos tu CSS original intacto y añadimos el contenedor de espaciado */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-container {
+  flex: 1;
+  width: 100%;
+  margin-top: 70px; /* Esto separa el Header de todas tus secciones */
+  box-sizing: border-box;
+}
+
+/* Opcional: Esto asegura que el contenido de cada sección no esté pegado a los bordes */
+.content-container > div, 
+.content-container > section {
+  padding: 40px 5%; 
+}
